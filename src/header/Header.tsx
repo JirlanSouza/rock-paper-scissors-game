@@ -1,7 +1,7 @@
 import { styled } from "@stitches/react";
 import { GlobalStyles } from "../styles/global.style";
 import { theme } from "../styles/theme";
-import logo from './images/logo.svg';
+import logo from '../assets/images/logo.svg';
 
 const GameHeader = styled("header", {
   width: "720px",
