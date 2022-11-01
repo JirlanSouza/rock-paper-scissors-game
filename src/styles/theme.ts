@@ -2,7 +2,7 @@ import { createTheme } from "@stitches/react";
 
 export const theme = createTheme({
   colors: {
-    textPrimary: "#FAFFFF",
+    textPrimary: "#FAFFFFAC",
     textDark: "hsl(229, 25%, 31%)",
     textScore: "hsl(229, 64%, 46%)",
     textLose: "#DA1F62",
