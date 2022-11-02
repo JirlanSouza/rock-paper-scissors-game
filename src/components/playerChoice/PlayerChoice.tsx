@@ -4,8 +4,6 @@ import paper from '../../assets/images/icon-paper.svg'
 import rock from '../../assets/images/icon-rock.svg'
 import scissors from '../../assets/images/icon-scissors.svg'
 
-
-
 const Outside = styled("div", {
   width: 200,
   height: 200,
@@ -51,14 +49,14 @@ type Choice = 'paper' | 'rock' | 'scissors';
 
 interface PlayerChoiceProps {
   choice: Choice,
-  
+
 }
 
 const ChoiceIcons: Record<Choice, string> = {
   paper, rock, scissors
 }
 
-export function PlayerChoice({choice}: PlayerChoiceProps){
+export function PlayerChoice({ choice }: PlayerChoiceProps) {
 
   return (
     <Outside choice={choice} >
