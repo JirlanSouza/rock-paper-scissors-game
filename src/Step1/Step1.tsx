@@ -1,5 +1,4 @@
 import { styled } from "@stitches/react";
-import { theme } from "../styles/theme";
 import bgTriangle from '../assets/images/bg-triangle.svg'
 import { PlayerChoice } from "../components/playerChoice/PlayerChoice";
 
