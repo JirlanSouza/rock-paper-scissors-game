@@ -67,6 +67,7 @@ export const DialogContent = styled(Content, {
   maxWidth: "450px",
   maxHeight: "85vh",
   padding: 32,
+  fontFamily: "sans-serif",
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
   },

@@ -17,7 +17,7 @@ export function RolesDialog({ open, setOpen }: RolesDialogProps) {
       <DialogPortal>
         <DialogOverlay />
         <DialogContent>
-          <DialogTitle>Roles</DialogTitle>
+          <DialogTitle>Rules</DialogTitle>
           <img src={RolesImage} alt="roles" />
           <CloseButton aria-label="close">
             <Cross2Icon />
