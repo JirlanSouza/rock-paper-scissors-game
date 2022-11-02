@@ -47,19 +47,22 @@ const Scissors = styled("div", {
   top: -150
 });
 
+interface Step1Props {
+  choice: (string: string) => void
+}
 
-export function Step1() {
+export function Step1({choice}: Step1Props) {
 
   return (
     <Step1Section>
       <Triangle src={bgTriangle} alt="Triangle" />
-      <Paper>
-        <PlayerChoice choice="paper"/>
+      <Paper onClick={() => choice('paper')} >
+        <PlayerChoice choice="paper" />
       </Paper>
-      <Rock>
-        <PlayerChoice choice="rock"/>
+      <Rock onClick={() => choice('rock')}>
+        <PlayerChoice choice="rock" />
       </Rock>
-      <Scissors>
+      <Scissors onClick={() => choice('scissors')}>
         <PlayerChoice choice="scissors"/>
       </Scissors>
     </Step1Section>
