@@ -5,8 +5,6 @@ export const Container = styled("div", {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  width: 200,
-  height: 220,
 });
 
 export const Title = styled("h6", {
@@ -18,7 +16,7 @@ export const Title = styled("h6", {
   color: theme.colors.textPrimary,
 });
 
-export const NotChoiceSelectd = styled("span", {
+export const NotChoiceSelected = styled("span", {
   width: 160,
   height: 160,
   borderRadius: "50%",
@@ -32,8 +30,8 @@ export const WinnerEffectConatiner = styled("span", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: 160,
-  height: 160,
+  width: 200,
+  height: 200,
 });
 
 export const WinnerEffect = styled("span", {

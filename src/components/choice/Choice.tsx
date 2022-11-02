@@ -1,8 +1,9 @@
-import { Container, NotChoiceSelectd, Title, WinnerEffect, WinnerEffectConatiner } from "./styles";
+import { PlayerChoice } from "../playerChoice/PlayerChoice";
+import { Container, NotChoiceSelected, Title, WinnerEffect, WinnerEffectConatiner } from "./styles";
 
 interface ChoiceProps {
   title: string;
-  choice?: "rock" | "papper" | "scissors";
+  choice?: "rock" | "paper" | "scissors";
   isWinner?: boolean;
 }
 
@@ -10,16 +11,17 @@ export function Choice({ title, choice, isWinner }: ChoiceProps) {
   return (
     <Container>
       <Title>{title}</Title>
-      {!choice && <NotChoiceSelectd />}
+      {!choice && <NotChoiceSelected />}
 
-      {isWinner ? (
+      {isWinner && choice ? (
         <WinnerEffectConatiner>
+          <PlayerChoice choice={choice} />
           <WinnerEffect scale={3} />
           <WinnerEffect scale={2} />
           <WinnerEffect scale={1} />
         </WinnerEffectConatiner>
       ) : (
-        <></>
+        choice && <PlayerChoice choice={choice} />
       )}
     </Container>
   );
