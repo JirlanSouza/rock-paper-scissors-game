@@ -1,5 +1,5 @@
 import { styled } from "@stitches/react";
-import bgTriangle from "../assets/images/bg-triangle.svg";
+import bgTriangle from "../../assets/images/bg-triangle.svg";
 import { PlayerChoice } from "../playerChoice/PlayerChoice";
 
 const Step1Section = styled("div", {
