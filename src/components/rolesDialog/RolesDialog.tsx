@@ -9,9 +9,9 @@ interface RolesDialogProps {
 
 const RolesImage = "src/assets/images/image-rules.svg";
 
-export function RolesDialog({ open, setOpen }: RolesDialogProps) {
+export function RolesDialog() {
   return (
-    <DialogRoot open={open} onOpenChange={setOpen}>
+    <DialogRoot>
       <OpenDialogButton>Roles</OpenDialogButton>
 
       <DialogPortal>
