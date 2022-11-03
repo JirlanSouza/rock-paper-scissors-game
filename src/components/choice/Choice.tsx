@@ -3,7 +3,7 @@ import { Container, NotChoiceSelected, Title, WinnerEffect, WinnerEffectConatine
 
 interface ChoiceProps {
   title: string;
-  choice?: "rock" | "paper" | "scissors";
+  choice: "rock" | "paper" | "scissors" | "no choice";
   isWinner?: boolean;
 }
 
@@ -11,9 +11,9 @@ export function Choice({ title, choice, isWinner }: ChoiceProps) {
   return (
     <Container>
       <Title>{title}</Title>
-      {!choice && <NotChoiceSelected />}
+      {choice === "no choice" && <NotChoiceSelected />}
 
-      {isWinner && choice ? (
+      {isWinner && choice != "no choice" ? (
         <WinnerEffectConatiner>
           <PlayerChoice choice={choice} />
           <WinnerEffect scale={3} />
@@ -21,7 +21,7 @@ export function Choice({ title, choice, isWinner }: ChoiceProps) {
           <WinnerEffect scale={1} />
         </WinnerEffectConatiner>
       ) : (
-        choice && <PlayerChoice choice={choice} />
+        choice != "no choice" && <PlayerChoice choice={choice} />
       )}
     </Container>
   );
