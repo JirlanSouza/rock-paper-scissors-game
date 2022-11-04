@@ -44,7 +44,11 @@ export function App() {
       {gameStep > 1 && gameStep < 5 && (
         <ChoicesContainer>
           <Choice title="You picked" choice={playerChoice} isWinner={winner === "player"} />
-          {gameStep > 3 && <button onClick={() => restartGame()}>Restart game</button>}
+          {gameStep > 3 && (
+            <button style={{ zIndex: 10 }} onClick={restartGame}>
+              Restart game
+            </button>
+          )}
           <Choice title="The house picked" choice={houseChoice} isWinner={winner === "house"} />
         </ChoicesContainer>
       )}
