@@ -1,4 +1,5 @@
 import { styled } from "@stitches/react";
+import { ButtonHTMLAttributes } from "react";
 import { theme } from "../../styles/theme";
 
 const RetrySection = styled("div", {
@@ -8,6 +9,7 @@ const RetrySection = styled("div", {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  zIndex: 10,
 });
 
 const Text = styled("p", {
@@ -27,6 +29,7 @@ const Button = styled("button", {
   borderRadius: 14,
   fontFamily: "'Barlow Semi Condensed', sans-serif;",
   letterSpacing: 4,
+  cursor: "pointer",
   transition: "all ease 0.2s",
   "&:hover": {
     filter: "brightness(0.9)",
@@ -45,11 +48,11 @@ const Button = styled("button", {
 
 type Result = "player" | "house" | "no winner";
 
-interface RetryProps {
+interface RetryProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   result: Result;
 }
 
-export function Retry({ result }: RetryProps) {
+export function Retry({ result, ...restProps }: RetryProps) {
   let resultText = "NO WINNER";
   if (result !== "no winner") {
     resultText = result === "player" ? "YOU WIN" : "YOU LOSE";
@@ -58,7 +61,7 @@ export function Retry({ result }: RetryProps) {
   return (
     <RetrySection>
       <Text>{resultText}</Text>
-      <Button result={result !== "no winner" ? result : undefined}>
+      <Button result={result !== "no winner" ? result : undefined} {...restProps}>
         PLAY AGAIN
       </Button>
     </RetrySection>
