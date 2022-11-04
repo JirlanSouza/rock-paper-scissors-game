@@ -8,6 +8,7 @@ import { useGameScore } from "./hooks/useGameScore";
 import { Step1 } from "./components/Step1/Step1";
 import { GlobalStyles } from "./styles/global.style";
 import { theme } from "./styles/theme";
+import { Retry } from "./components/Retry/Retry";
 
 const Page = styled("main", {
   position: "relative",
@@ -44,11 +45,7 @@ export function App() {
       {gameStep > 1 && gameStep < 5 && (
         <ChoicesContainer>
           <Choice title="You picked" choice={playerChoice} isWinner={winner === "player"} />
-          {gameStep > 3 && (
-            <button style={{ zIndex: 10 }} onClick={restartGame}>
-              Restart game
-            </button>
-          )}
+          {gameStep > 3 && <Retry result={winner} onClick={restartGame} />}
           <Choice title="The house picked" choice={houseChoice} isWinner={winner === "house"} />
         </ChoicesContainer>
       )}
