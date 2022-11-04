@@ -12,7 +12,7 @@ const RolesImage = "src/assets/images/image-rules.svg";
 export function RolesDialog() {
   return (
     <DialogRoot>
-      <OpenDialogButton>Roles</OpenDialogButton>
+      <OpenDialogButton>Rules</OpenDialogButton>
 
       <DialogPortal>
         <DialogOverlay />
