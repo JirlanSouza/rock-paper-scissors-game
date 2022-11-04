@@ -16,6 +16,12 @@ function genarateChoiceIndex() {
   return Math.floor(Math.random() * 2);
 }
 
+async function delay(time: number) {
+  return new Promise((resolve, _) => {
+    setTimeout(resolve, time);
+  });
+}
+
 export function useGame(computeScore: (wiiner: Winner) => void) {
   const [gameState, setGameState] = useState<GameState>({
     playerChoice: "no choice",
@@ -26,10 +32,10 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
   });
 
   useEffect(() => {
-    startGame();
-  }, []);
+    console.table(gameState);
+  }, [gameState]);
 
-  function startGame() {
+  async function startGame() {
     const state: GameState = {
       playerChoice: "no choice",
       houseChoice: "no choice",
@@ -37,11 +43,13 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
       gameStep: 1,
       winner: "no winner",
     };
+    setGameState(state);
+    await delay(1000);
     selectChoice(state);
   }
 
   function restartGame() {
-    alert();
+    console.log("Restarting game...");
     startGame();
   }
 
@@ -53,53 +61,43 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
   function selectPlayerChoice(choice: Choice) {
     if (choice === "no choice") return;
 
-    setGameState({
-      ...gameState,
+    setGameState((state) => ({
+      ...state,
       playerChoice: choice,
       gameStep: 2,
+    }));
+    selectHouseChoice(choice);
+  }
+
+  async function selectHouseChoice(playerChoice: Choice) {
+    await delay(1000);
+    const choiceIndex = genarateChoiceIndex();
+    const choice = choices[choiceIndex];
+
+    if (choice === playerChoice) {
+      await selectHouseChoice(playerChoice);
+      return;
+    }
+
+    setGameState((state) => ({ ...state, houseChoice: choice, gameStep: 3 }));
+    await verifyWinner();
+  }
+
+  async function verifyWinner() {
+    await delay(1000);
+    setGameState((state) => {
+      let winner: Winner = "no winner";
+      if (state.playerChoice === state.choice) {
+        winner = "player";
+      }
+
+      if (state.houseChoice === state.choice) {
+        winner = "house";
+      }
+
+      computeScore(winner);
+      return { ...state, winner, gameStep: 4 };
     });
-    selectHouseChoice();
-  }
-
-  function selectHouseChoice() {
-    setTimeout(
-      () =>
-        setGameState((state) => {
-          const choiceIndex = genarateChoiceIndex();
-          const choice = choices[choiceIndex];
-
-          if (choice === state.playerChoice) {
-            console.log(choice, state.playerChoice);
-            selectHouseChoice();
-            return { ...state };
-          }
-
-          verifyWinner();
-          return { ...state, houseChoice: choice, gameStep: 3 };
-        }),
-      1000
-    );
-  }
-
-  function verifyWinner() {
-    setTimeout(
-      () =>
-        setGameState((state) => {
-          let winner: Winner = "no winner";
-          if (state.playerChoice === state.choice) {
-            winner = "player";
-          }
-
-          if (state.houseChoice === state.choice) {
-            winner = "house";
-          }
-          console.log(winner);
-
-          computeScore(winner);
-          return { ...state, winner, gameStep: 4 };
-        }),
-      1000
-    );
   }
 
   return {
