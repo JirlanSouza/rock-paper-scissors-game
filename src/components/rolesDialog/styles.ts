@@ -13,6 +13,8 @@ export const DialogOverlay = styled(Overlay, {
   position: "fixed",
   inset: 0,
   backgroundColor: "rgba(3,3,3, 0.2)",
+  zIndex: 99,
+
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
   },
@@ -68,6 +70,8 @@ export const DialogContent = styled(Content, {
   maxHeight: "85vh",
   padding: 32,
   fontFamily: "sans-serif",
+  zIndex: 100,
+
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
   },
