@@ -11,6 +11,8 @@ It is an web game of rock, papper and scissors.
 
 ## Pages
 
+Access [App demo](https://rpsgame-pve.netlify.app/)
+
 #### Roles
 
 ![Roles](./screenshots/desktop-rules-modal.jpg?raw=true)
