@@ -31,10 +31,6 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
     winner: "no winner",
   });
 
-  useEffect(() => {
-    console.table(gameState);
-  }, [gameState]);
-
   async function startGame() {
     const state: GameState = {
       playerChoice: "no choice",
@@ -49,7 +45,6 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
   }
 
   function restartGame() {
-    console.log("Restarting game...");
     startGame();
   }
 
