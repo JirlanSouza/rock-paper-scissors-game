@@ -1,11 +1,10 @@
 import { styled } from "@stitches/react";
-import { useState } from "react";
 import { Choice } from "./components/choice/Choice";
 import { RolesDialog } from "./components/rolesDialog/RolesDialog";
 import { Header } from "./components/header/Header";
 import { useGame } from "./hooks/useGame";
 import { useGameScore } from "./hooks/useGameScore";
-import { Step1 } from "./components/Step1/Step1";
+import { SelectChoice } from "./components/selectChoice";
 import { GlobalStyles } from "./styles/global.style";
 import { theme } from "./styles/theme";
 import { Retry } from "./components/Retry/Retry";
@@ -27,10 +26,6 @@ const ChoicesContainer = styled("div", {
   columnGap: 48,
 });
 
-const Text = styled("h1", {
-  color: theme.colors.textLose,
-});
-
 export function App() {
   const { score, computeScore } = useGameScore();
   const { gameStep, playerChoice, houseChoice, winner, selectPlayerChoice, restartGame } =
@@ -40,7 +35,7 @@ export function App() {
   return (
     <Page className={theme}>
       <Header score={score} />
-      {gameStep === 1 && <Step1 onSelectChoice={selectPlayerChoice} />}
+      {gameStep === 1 && <SelectChoice onSelectChoice={selectPlayerChoice} />}
 
       {gameStep > 1 && gameStep < 5 && (
         <ChoicesContainer>

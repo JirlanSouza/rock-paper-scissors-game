@@ -1,12 +1,13 @@
 import { styled } from "@stitches/react";
-import bgTriangle from "../assets/images/bg-triangle.svg";
-import { PlayerChoice } from "../components/playerChoice/PlayerChoice";
+import bgTriangle from "../../assets/images/bg-triangle.svg";
+import { PlayerChoice } from "../playerChoice/PlayerChoice";
 
 const Step1Section = styled("div", {
-  position: "absolute",
+  position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  margin: 100,
   zIndex: "1",
 });
 
@@ -18,50 +19,70 @@ const Triangle = styled("img", {
 });
 
 const Paper = styled("div", {
-  position: "relative",
+  position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   zIndex: "5",
-  left: -400,
-  top: -150,
+  right: -80,
+  top: -95,
+  cursor: "pointer",
+  transition: "filter easy 0.2s",
+
+  "&:hover": {
+    filter: "brightness(0.8)",
+  },
 });
 
 const Rock = styled("div", {
-  position: "relative",
+  position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   zIndex: "6",
-  right: 450,
-  top: 100,
+  left: 55,
+  top: 140,
+  cursor: "pointer",
+  transition: "filter easy 0.2s",
+
+  "&:hover": {
+    filter: "brightness(0.8)",
+  },
 });
 
 const Scissors = styled("div", {
-  position: "relative",
+  position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   zIndex: "7",
-  left: -500,
-  top: -150,
+  left: -80,
+  top: -95,
+  cursor: "pointer",
+  transition: "filter easy 0.2s",
+
+  "&:hover": {
+    filter: "brightness(0.8)",
+  },
 });
 
+type Choice = "rock" | "paper" | "scissors";
+
 interface Step1Props {
-  choice: (string: string) => void;
+  onSelectChoice: (choice: Choice) => void;
 }
 
-export function Step1({ choice }: Step1Props) {
+export function SelectChoice({ onSelectChoice }: Step1Props) {
   return (
     <Step1Section>
       <Triangle src={bgTriangle} alt="Triangle" />
-      <Paper onClick={() => choice("paper")}>
+      <Paper onClick={() => onSelectChoice("paper")}>
         <PlayerChoice choice="paper" />
       </Paper>
-      <Rock onClick={() => choice("rock")}>
+      <Rock onClick={() => onSelectChoice("rock")}>
         <PlayerChoice choice="rock" />
       </Rock>
-      <Scissors onClick={() => choice("scissors")}>
+      <Scissors onClick={() => onSelectChoice("scissors")}>
         <PlayerChoice choice="scissors" />
       </Scissors>
     </Step1Section>
