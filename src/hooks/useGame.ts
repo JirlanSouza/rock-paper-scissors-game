@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+type GameStep = "start" | "playerChoice" | "housechoice" | "finish";
 type Winner = "player" | "house" | "no winner";
 type Choice = "rock" | "paper" | "scissors" | "no choice";
 const choices: Choice[] = ["rock", "paper", "scissors", "no choice"];
@@ -8,7 +9,7 @@ type GameState = {
   playerChoice: Choice;
   houseChoice: Choice;
   choice: Choice;
-  gameStep: number;
+  gameStep: GameStep;
   winner: Winner;
 };
 
@@ -27,7 +28,7 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
     playerChoice: "no choice",
     houseChoice: "no choice",
     choice: "no choice",
-    gameStep: 1,
+    gameStep: "start",
     winner: "no winner",
   });
 
@@ -36,7 +37,7 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
       playerChoice: "no choice",
       houseChoice: "no choice",
       choice: "no choice",
-      gameStep: 1,
+      gameStep: "start",
       winner: "no winner",
     };
     setGameState(state);
@@ -59,7 +60,7 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
     setGameState((state) => ({
       ...state,
       playerChoice: choice,
-      gameStep: 2,
+      gameStep: "playerChoice",
     }));
     selectHouseChoice(choice);
   }
@@ -74,7 +75,11 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
       return;
     }
 
-    setGameState((state) => ({ ...state, houseChoice: choice, gameStep: 3 }));
+    setGameState((state) => ({
+      ...state,
+      houseChoice: choice,
+      gameStep: "housechoice",
+    }));
     await verifyWinner();
   }
 
@@ -91,7 +96,7 @@ export function useGame(computeScore: (wiiner: Winner) => void) {
       }
 
       computeScore(winner);
-      return { ...state, winner, gameStep: 4 };
+      return { ...state, winner, gameStep: "finish" };
     });
   }
 

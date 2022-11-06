@@ -27,16 +27,20 @@ export function App() {
   return (
     <AppLayoutContainer className={theme}>
       <Header score={score} />
-      {gameStep === 1 && <SelectChoice onSelectChoice={selectPlayerChoice} />}
+      {gameStep === "start" && (
+        <SelectChoice onSelectChoice={selectPlayerChoice} />
+      )}
 
-      {gameStep > 1 && gameStep < 5 && (
+      {gameStep != "start" && (
         <AppContentContainerContainer>
           <Choice
             title="You picked"
             choice={playerChoice}
             isWinner={winner === "player"}
           />
-          {gameStep > 3 && <Retry result={winner} onClick={restartGame} />}
+          {gameStep === "finish" && (
+            <Retry result={winner} onClick={restartGame} />
+          )}
           <Choice
             title="The house picked"
             choice={houseChoice}
