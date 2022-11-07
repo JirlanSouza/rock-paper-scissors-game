@@ -15,23 +15,31 @@ Access [App demo](https://rpsgame-pve.netlify.app/)
 
 #### Roles
 
-![Roles](./screenshots/desktop-rules-modal.jpg?raw=true)
+![Roles](./screenshots/rules-modal.png?raw=true)
 
-#### Step 1
+#### Start
 
-![Step1](./screenshots/desktop-step-1.jpg?raw=true)
+![Start](./screenshots/step-start.png?raw=true)
 
-#### Step 2
+#### Player choice
 
-![Step2](./screenshots/desktop-step-2.jpg?raw=true)
+![Player choice](./screenshots/step-playerChoice.png?raw=true)
 
-#### Step 3
+#### House choice
 
-![Step3](./screenshots/desktop-step-3.jpg?raw=true)
+![House choice](./screenshots/step-houseChoice.png?raw=true)
 
-#### Step 4
+#### Finish win
 
-![Step4](./screenshots/desktop-step-4-win.jpg?raw=true)
+![Finish win](./screenshots/step-finish-win.png?raw=true)
+
+#### Finish lose
+
+![Finish win](./screenshots/step-finish-lose.png?raw=true)
+
+#### Finish no winner
+
+![Finish no winner](./screenshots/step-finish-noWinner.png?raw=true)
 
 ## To run project
 
