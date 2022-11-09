@@ -1,5 +1,11 @@
-import { PlayerChoice } from "../playerChoice/PlayerChoice";
-import { Container, NotChoiceSelected, Title, WinnerEffect, WinnerEffectConatiner } from "./styles";
+import { PlayerChoice } from "../playerChoice";
+import {
+  Container,
+  NotChoiceSelected,
+  Title,
+  WinnerEffect,
+  WinnerEffectConatiner,
+} from "./styles";
 
 interface ChoiceProps {
   title: string;

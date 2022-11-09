@@ -1,6 +1,12 @@
 import { DialogPortal, Root as DialogRoot } from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { CloseButton, DialogContent, DialogOverlay, DialogTitle, OpenDialogButton } from "./styles";
+import {
+  CloseButton,
+  DialogContent,
+  DialogOverlay,
+  DialogTitle,
+  OpenDialogButton,
+} from "./styles";
 import RolesImage from "../../assets/images/image-rules.svg";
 
 interface RolesDialogProps {

@@ -1,4 +1,4 @@
-import { PlayerChoice } from "../playerChoice/PlayerChoice";
+import { PlayerChoice } from "../playerChoice";
 import bgTriangle from "../../assets/images/bg-triangle.svg";
 import { Paper, Rock, Scissors, Step1Section, Triangle } from "./styles";
 
